@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTest", "MyTest\MyTest.csproj", "{E9DF708F-8331-49E4-90FA-F701C2B61427}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{61139FDB-F735-4A8B-9768-9E7C435E5A07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{9531421C-A682-459E-BDE7-4E1A0C24808D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9DF708F-8331-49E4-90FA-F701C2B61427}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9DF708F-8331-49E4-90FA-F701C2B61427}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9DF708F-8331-49E4-90FA-F701C2B61427}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9DF708F-8331-49E4-90FA-F701C2B61427}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61139FDB-F735-4A8B-9768-9E7C435E5A07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61139FDB-F735-4A8B-9768-9E7C435E5A07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61139FDB-F735-4A8B-9768-9E7C435E5A07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61139FDB-F735-4A8B-9768-9E7C435E5A07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9531421C-A682-459E-BDE7-4E1A0C24808D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9531421C-A682-459E-BDE7-4E1A0C24808D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9531421C-A682-459E-BDE7-4E1A0C24808D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9531421C-A682-459E-BDE7-4E1A0C24808D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2CA76C25-8D29-4220-8C8A-8958D5340692}
+	EndGlobalSection
+EndGlobal
