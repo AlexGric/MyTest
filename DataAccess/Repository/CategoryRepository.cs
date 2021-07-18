@@ -11,23 +11,23 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public class CategoryRepository : BaseRepository<Category>, ICategory
+    public class CategoryRepository : BaseRepository<Category>, ICategoryRepository
     {
         public CategoryRepository(AdvertisementContext context) : base(context)
         {
         }
 
-        async Task<IReadOnlyCollection<Category>> ICategory.FindAllCategorysAllIncludedAsync()
+        async Task<IReadOnlyCollection<Category>> ICategoryRepository.FindAllCategorysAllIncludedAsync()
         {
             return await Entities.ToListAsync().ConfigureAwait(false);
         }
 
-        async Task<IReadOnlyCollection<Category>> ICategory.FindCategoryByConditionAllIncludedAsync(Expression<Func<Category, bool>> categoryPredicate)
+        async Task<IReadOnlyCollection<Category>> ICategoryRepository.FindCategoryByConditionAllIncludedAsync(Expression<Func<Category, bool>> categoryPredicate)
         {
             return await Entities.Where(categoryPredicate).ToListAsync().ConfigureAwait(false);
         }
 
-        async Task<Category> ICategory.GetCategoryAllIncludedAsync(Expression<Func<Category, bool>> categoryPredicate)
+        async Task<Category> ICategoryRepository.GetCategoryAllIncludedAsync(Expression<Func<Category, bool>> categoryPredicate)
         {
             return await AdvertisementContext.Categories.Where(categoryPredicate).FirstOrDefaultAsync();
         }
@@ -37,6 +37,13 @@ namespace DataAccess.Repository
             await AdvertisementContext.Categories.AddAsync(category);
             await AdvertisementContext.SaveChangesAsync();
             return category;
+        }
+
+        public async Task DeleteById(int id)
+        {
+            Category category = (Category)await FindByConditionAsync(x => x.Id == id);
+            if (category != null) AdvertisementContext.Remove(category);
+            await AdvertisementContext.SaveChangesAsync();
         }
     }
 }
