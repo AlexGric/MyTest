@@ -33,5 +33,12 @@ namespace DataAccess.Repository
             await AdvertisementContext.SaveChangesAsync();
             return advertisement;
         }
+
+        public async Task DeleteById(int id)
+        {
+            Advertisement advertisement = (Advertisement)await FindByConditionAsync(x=>x.Id == id);
+            if (advertisement != null) AdvertisementContext.Remove(advertisement);
+            await AdvertisementContext.SaveChangesAsync();
+        }
     }
 }
