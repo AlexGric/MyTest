@@ -11,6 +11,6 @@ namespace DataAccess.Repository.Interfaces
         Task<IReadOnlyCollection<Models.Category>> FindAllCategorysAllIncludedAsync();
         Task<IReadOnlyCollection<Models.Category>> FindCategoryByConditionAllIncludedAsync(Expression<Func<Models.Category, bool>> categoryPredicate);
         Task<Models.Category> GetCategoryAllIncludedAsync(Expression<Func<Models.Category, bool>> categoryPredicate);
-        Task DeleteById(int id);
+        Task Delete(Expression<Func<Models.Category, bool>> advertisementPredicate);
     }
 }

@@ -39,9 +39,9 @@ namespace DataAccess.Repository
             return category;
         }
 
-        public async Task DeleteById(int id)
+        public async Task Delete(Expression<Func<Models.Category, bool>> advertisementPredicate)
         {
-            Category category = (Category)await FindByConditionAsync(x => x.Id == id);
+            Category category = (Category)await FindByConditionAsync(x => x.Equals(advertisementPredicate));
             if (category != null) AdvertisementContext.Remove(category);
             await AdvertisementContext.SaveChangesAsync();
         }

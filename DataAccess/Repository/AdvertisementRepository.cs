@@ -34,9 +34,9 @@ namespace DataAccess.Repository
             return advertisement;
         }
 
-        public async Task DeleteById(int id)
+        public async Task Delete(Expression<Func<Models.Advertisement, bool>> advertisementPredicate)
         {
-            Advertisement advertisement = (Advertisement)await FindByConditionAsync(x=>x.Id == id);
+            Advertisement advertisement = (Advertisement)await FindByConditionAsync(x=>x.Equals(advertisementPredicate));
             if (advertisement != null) AdvertisementContext.Remove(advertisement);
             await AdvertisementContext.SaveChangesAsync();
         }
