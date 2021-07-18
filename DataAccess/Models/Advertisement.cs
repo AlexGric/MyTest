@@ -14,6 +14,7 @@ namespace DataAccess.Models
 
     public class Advertisement
     {
+        public int Id { get; set; }
         public AdType AdType { get; set; }
         public Category Category { get; set; }
         public int Cost { get; set; }
