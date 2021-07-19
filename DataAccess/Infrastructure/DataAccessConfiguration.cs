@@ -12,7 +12,7 @@ namespace DataAccess.Infrastructure
         public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient(typeof(IAdvertisementRepository), typeof(AdvertisementRepository));
-            services.AddTransient(typeof(ICategory), typeof(CategoryRepository));
+            services.AddTransient(typeof(ICategoryRepository), typeof(CategoryRepository));
 
             services.AddDbContext<AdvertisementContext>(option =>
                 option.UseSqlServer(configuration.GetConnectionString("AdvertisementContext")));
