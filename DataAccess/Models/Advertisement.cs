@@ -21,14 +21,7 @@ namespace DataAccess.Models
         public string Content { get; set; }
         public string Image { get; set; }
 
-        public Advertisement(AdType adType, Category category, int cost, string content, string image)
-        {
-            AdType = adType;
-            Category = category;
-            Cost = cost;
-            Content = content;
-            Image = image;
-        }
+       
 
     }
 }
