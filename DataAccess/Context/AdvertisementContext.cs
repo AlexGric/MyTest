@@ -19,6 +19,7 @@ namespace DataAccess.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             ConfigureAdvertisementTable(modelBuilder);
+            ConfigureCategoryTable(modelBuilder);
         }
 
         private void ConfigureAdvertisementTable(ModelBuilder modelBuilder)
@@ -29,6 +30,31 @@ namespace DataAccess.Context
                      t => t.ToString(),
                      t => (AdType)Enum.Parse(typeof(AdType), t)
                  );
+
+            modelBuilder.Entity<Advertisement>().HasData(
+               new Advertisement()
+               {
+                   Id = 1,
+                   AdType = AdType.TextAd,
+                   Content = "Temp Content",
+                   Cost= 10,
+                   CategoryId = 1
+                   
+                  
+               });
+        }
+        private void ConfigureCategoryTable(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<Category>().HasData(
+               new Category()
+               {
+                   Id = 1,
+                  Name= "Test Category",
+                  Description ="Temp description"
+
+
+               });
         }
     }
 }
