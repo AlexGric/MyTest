@@ -15,7 +15,7 @@ namespace DataAccess.Infrastructure
             services.AddTransient(typeof(ICategoryRepository), typeof(CategoryRepository));
 
             services.AddDbContext<AdvertisementContext>(option =>
-                option.UseSqlServer(configuration.GetConnectionString("AdvertisementContext")));
+                option.UseSqlServer(configuration.GetConnectionString("AdvertisementConnection")));
         }
     }
 }
