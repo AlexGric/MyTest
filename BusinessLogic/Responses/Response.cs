@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BusinessLogic.Responses
+﻿namespace BusinessLogic.Responses
 {
     public class Response<T> where T : class
     {
@@ -27,7 +23,6 @@ namespace BusinessLogic.Responses
         /// <param name="data">Newly created item</param>
         public Response(T data) : this(true, string.Empty, data)
         {
-
         }
 
         /// <summary>
@@ -36,7 +31,6 @@ namespace BusinessLogic.Responses
         /// <param name="message">Error message</param>
         public Response(string message) : this(false, message, null)
         {
-
         }
     }
 }

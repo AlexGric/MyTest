@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DataAccess.Models
+﻿namespace DataAccess.Models
 {
     public enum AdType
     {
@@ -21,8 +17,5 @@ namespace DataAccess.Models
         public int Cost { get; set; }
         public string Content { get; set; }
         public string Image { get; set; }
-
-       
-
     }
 }

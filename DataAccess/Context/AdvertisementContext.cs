@@ -4,7 +4,7 @@ using System;
 
 namespace DataAccess.Context
 {
-    public class AdvertisementContext: DbContext 
+    public class AdvertisementContext : DbContext
     {
         public AdvertisementContext(DbContextOptions<AdvertisementContext> options) : base(options)
         {
@@ -14,7 +14,6 @@ namespace DataAccess.Context
 
         public DbSet<Advertisement> Advertisements { get; set; }
         public DbSet<Category> Categories { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -37,23 +36,19 @@ namespace DataAccess.Context
                    Id = 1,
                    AdType = AdType.TextAd,
                    Content = "Temp Content",
-                   Cost= 10,
+                   Cost = 10,
                    CategoryId = 1
-                   
-                  
                });
         }
+
         private void ConfigureCategoryTable(ModelBuilder modelBuilder)
         {
-
             modelBuilder.Entity<Category>().HasData(
                new Category()
                {
                    Id = 1,
-                  Name= "Test Category",
-                  Description ="Temp description"
-
-
+                   Name = "Test Category",
+                   Description = "Temp description"
                });
         }
     }

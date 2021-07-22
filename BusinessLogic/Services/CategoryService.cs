@@ -4,7 +4,6 @@ using DataAccess.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessLogic.Services
@@ -13,6 +12,7 @@ namespace BusinessLogic.Services
     {
         private ICategoryRepository _categoryRepository { set; get; }
         private IMapper _mapper { set; get; }
+
         public CategoryService(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
@@ -20,9 +20,9 @@ namespace BusinessLogic.Services
             {
                 cfg.CreateMap<DataAccess.Models.Category, ViewModels.Category>();
                 cfg.CreateMap<DataAccess.Models.Category, ViewModels.Category>();
-
             }).CreateMapper();
         }
+
         public async Task<IReadOnlyCollection<ViewModels.Category>> FindByConditionAsync(Expression<Func<DataAccess.Models.Category, bool>> predicat)
         {
             return await _mapper.Map<Task<IReadOnlyCollection<DataAccess.Models.Category>>, Task<IReadOnlyCollection<ViewModels.Category>>>((Task<IReadOnlyCollection<DataAccess.Models.Category>>)await _categoryRepository.FindByConditionAsync(predicat));
@@ -37,7 +37,6 @@ namespace BusinessLogic.Services
         {
             try
             {
-
                 DataAccess.Models.Category ad = _mapper.Map<ViewModels.Category, DataAccess.Models.Category>(category);
                 ViewModels.Category newCategory = _mapper.Map<DataAccess.Models.Category, ViewModels.Category>(await _categoryRepository.CreateAsync(ad));
                 return new Response<ViewModels.Category>(newCategory);
@@ -53,7 +52,6 @@ namespace BusinessLogic.Services
         {
             DataAccess.Models.Category ad = _mapper.Map<ViewModels.Category, DataAccess.Models.Category>(category);
             await _categoryRepository.Delete(x => x.Equals(ad));
-
         }
     }
 }

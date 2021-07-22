@@ -12,10 +12,13 @@ namespace DataAccess.Repository
 {
     public class AdvertisementRepository : BaseRepository<Advertisement>, IAdvertisementRepository
     {
-        public AdvertisementRepository(AdvertisementContext context) : base(context) { }
+        public AdvertisementRepository(AdvertisementContext context) : base(context)
+        {
+        }
+
         async Task<IReadOnlyCollection<Advertisement>> IAdvertisementRepository.FindAdvertisementByConditionAllIncludedAsync(Expression<Func<Advertisement, bool>> advertisementPredicate)
         {
-            return await Entities.Where(advertisementPredicate).ToListAsync().ConfigureAwait(false);           
+            return await Entities.Where(advertisementPredicate).ToListAsync().ConfigureAwait(false);
         }
 
         async Task<IReadOnlyCollection<Advertisement>> IAdvertisementRepository.FindAllAdvertisementsAllIncludedAsync()
@@ -27,6 +30,7 @@ namespace DataAccess.Repository
         {
             return await AdvertisementContext.Advertisements.Where(advertisementPredicate).FirstOrDefaultAsync();
         }
+
         public override async Task<Advertisement> CreateAsync(Advertisement advertisement)
         {
             await AdvertisementContext.Advertisements.AddAsync(advertisement);
@@ -36,7 +40,7 @@ namespace DataAccess.Repository
 
         public async Task Delete(Expression<Func<Models.Advertisement, bool>> advertisementPredicate)
         {
-            Advertisement advertisement = (Advertisement)await FindByConditionAsync(x=>x.Equals(advertisementPredicate));
+            Advertisement advertisement = (Advertisement)await FindByConditionAsync(x => x.Equals(advertisementPredicate));
             if (advertisement != null) AdvertisementContext.Remove(advertisement);
             await AdvertisementContext.SaveChangesAsync();
         }
